@@ -31,6 +31,8 @@
 		A32D80CF1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32D80CD1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib */; };
 		A32D80D21FDFB77A002682E4 /* BHTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80D11FDFB77A002682E4 /* BHTask.m */; };
 		A32D80D61FDFBDB9002682E4 /* NSDate+BH.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80D51FDFBDB9002682E4 /* NSDate+BH.m */; };
+		A32D811A1FDFD45C002682E4 /* BHScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D81181FDFD45C002682E4 /* BHScheduleTableViewCell.m */; };
+		A32D811B1FDFD45C002682E4 /* BHScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32D81191FDFD45C002682E4 /* BHScheduleTableViewCell.xib */; };
 		A3D85DEA1FDD35F1005F19B4 /* BHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D85DE91FDD35F1005F19B4 /* BHPopView.m */; };
 		A3EB1A8C1FDA6E5600EA087A /* BHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1A8B1FDA6E5600EA087A /* BHViewController.m */; };
 		A3EB1AA61FDA758A00EA087A /* BHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AA51FDA758A00EA087A /* BHNavigationViewController.m */; };
@@ -88,6 +90,9 @@
 		A32D80D11FDFB77A002682E4 /* BHTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHTask.m; sourceTree = "<group>"; };
 		A32D80D41FDFBDB9002682E4 /* NSDate+BH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BH.h"; sourceTree = "<group>"; };
 		A32D80D51FDFBDB9002682E4 /* NSDate+BH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BH.m"; sourceTree = "<group>"; };
+		A32D81171FDFD45C002682E4 /* BHScheduleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHScheduleTableViewCell.h; sourceTree = "<group>"; };
+		A32D81181FDFD45C002682E4 /* BHScheduleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHScheduleTableViewCell.m; sourceTree = "<group>"; };
+		A32D81191FDFD45C002682E4 /* BHScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BHScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		A3377CE01FD7C4D50069B128 /* BHOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BHOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D85DE81FDD35F1005F19B4 /* BHPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPopView.h; sourceTree = "<group>"; };
 		A3D85DE91FDD35F1005F19B4 /* BHPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPopView.m; sourceTree = "<group>"; };
@@ -333,6 +338,9 @@
 				A32D80CB1FDFA84B002682E4 /* BHHomeTaskTableViewCell.h */,
 				A32D80CC1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m */,
 				A32D80CD1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib */,
+				A32D81171FDFD45C002682E4 /* BHScheduleTableViewCell.h */,
+				A32D81181FDFD45C002682E4 /* BHScheduleTableViewCell.m */,
+				A32D81191FDFD45C002682E4 /* BHScheduleTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -612,6 +620,7 @@
 				A32D809C1FDE1E47002682E4 /* BHLoginViewController.xib in Resources */,
 				A3FEFFAD1FDA662E00B78D05 /* Assets.xcassets in Resources */,
 				A3FEFFB61FDA664000B78D05 /* Info.plist in Resources */,
+				A32D811B1FDFD45C002682E4 /* BHScheduleTableViewCell.xib in Resources */,
 				A32D80BB1FDE5E4B002682E4 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,6 +708,7 @@
 				A3EB1AAC1FDA7A7500EA087A /* BHProjectViewController.m in Sources */,
 				A3FEFFC41FDA690400B78D05 /* TransitionController.m in Sources */,
 				A32D80B01FDE51A0002682E4 /* BHAppHttpClient.m in Sources */,
+				A32D811A1FDFD45C002682E4 /* BHScheduleTableViewCell.m in Sources */,
 				A32D80CE1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m in Sources */,
 				A32D80BA1FDE5E4B002682E4 /* MBProgressHUD+MJ.m in Sources */,
 				A3FEFFBA1FDA665A00B78D05 /* AppDelegate.m in Sources */,

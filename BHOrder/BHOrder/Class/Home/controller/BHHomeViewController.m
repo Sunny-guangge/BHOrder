@@ -9,8 +9,10 @@
 #import "BHHomeViewController.h"
 #import "BHHomeTaskTableViewCell.h"
 #import "BHTask.h"
+#import "BHScheduleTableViewCell.h"
 
 static NSString *indentifier = @"BHHomeTaskTableViewCell";
+static NSString *schedueindentifier = @"BHScheduleTableViewCell";
 
 @interface BHHomeViewController ()<UITableViewDelegate,UITableViewDataSource,BHHomeTaskTableViewCellDeletage>{
     NSInteger _order;
@@ -19,6 +21,7 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *array;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 
 @end
 
@@ -46,6 +49,36 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
     
 }
 
+- (void)loadInternetRequest{
+    
+}
+
+- (void)loadMyScheduleList{
+    NSString *string = [NSString stringWithFormat:@"%@%@",REQUEST_URL,@"programme/oneDay/list"];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@(1) forKey:@"pageNo"];
+    [dic setObject:@(100) forKey:@"pageSize"];
+    [dic setObject:[NSDate timeWithDateFormatter:@"yyyy-MM-dd" date:[NSDate date]] forKey:@"date"];
+    [[BHAppHttpClient sharedInstance] requestGETWithPath:string parameters:nil success:^(BHResponse *response) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        if ([BHServerSuccess isEqualToString:response.code]) {
+            [self.dataArray removeAllObjects];
+            NSArray *arr = [BHTask mj_objectArrayWithKeyValuesArray:[response.obj objectForKey:@"list"]];
+            if (arr.count < 10) {
+                [self.tableView.mj_footer setState:MJRefreshStateNoMoreData];
+            }
+            [self.dataArray addObjectsFromArray:arr];
+            [self.tableView reloadData];
+        }else{
+            [MBProgressHUD showError:response.msg];
+        }
+    } error:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+}
+
 - (void)loadmytasklist{
     NSString *string = [NSString stringWithFormat:@"%@%@",REQUEST_URL,@"task/toDoList/"];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -59,6 +92,7 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
         if ([BHServerSuccess isEqualToString:response.code]) {
             if (self.page == 1) {
                 [self.array removeAllObjects];
+                [self.tableView.mj_footer setState:MJRefreshStateIdle];
             }
             NSArray *arr = [BHTask mj_objectArrayWithKeyValuesArray:[response.obj objectForKey:@"list"]];
             if (arr.count < 10) {
@@ -108,14 +142,15 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
 
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"BHHomeTaskTableViewCell" bundle:nil] forCellReuseIdentifier:indentifier];
+        [_tableView registerNib:[UINib nibWithNibName:@"BHScheduleTableViewCell" bundle:nil] forCellReuseIdentifier:schedueindentifier];
         _tableView.tableFooterView = [UIView new];
         _tableView.mj_header = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
             self.page = 1;
-            [self loadmytasklist];
+            [self loadInternetRequest];
         }];
         _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [self loadmytasklist];
@@ -129,6 +164,17 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
         _array = [NSMutableArray array];
     }
     return _array;
+}
+
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -150,7 +196,5 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
-
-
 
 @end
