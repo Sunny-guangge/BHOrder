@@ -12,7 +12,7 @@
 #import "BHTabBarViewController.h"
 #import "WXApi.h"
 
-@interface BHLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate>{
+@interface BHLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate,UITextViewDelegate>{
     //注册时的倒计时
     NSInteger _time;
     NSTimer *_nstimer;
@@ -36,7 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *clickloginbutton;
 
-@property (weak, nonatomic) IBOutlet UITextView *protocaltextview;
+@property (weak, nonatomic) IBOutlet UIView *textbackView;
+@property (nonatomic,strong) UITextView *textView;
 
 @property (weak, nonatomic) IBOutlet UIButton *weixinButton;
 @property (weak, nonatomic) IBOutlet UIButton *qqbutton;
@@ -60,6 +61,15 @@
     
     _time = 90;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getwxcodesuccess:) name:WXGETCODESUCCESS object:nil];
+    
+    [self.textbackView addSubview:self.textView];
+    UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.textbackView.mas_top).with.offset(padding.top);
+        make.left.equalTo(self.textbackView.mas_left).with.offset(padding.left);
+        make.bottom.equalTo(self.textbackView.mas_bottom).with.offset(-padding.bottom);
+        make.right.equalTo(self.textbackView.mas_right).with.offset(-padding.right);
+    }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -68,6 +78,30 @@
     [_nstimer invalidate];
     _nstimer = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:WXGETCODESUCCESS object:nil];
+}
+
+- (UITextView *)textView{
+    if (_textView == nil) {
+        _textView = [[UITextView alloc] init];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"点击登录，既表示我已阅读并同意《服务协议》"];//《基金公司直销平台用户协议》
+        [attributedString addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x999999) range:NSMakeRange(0, attributedString.length)];
+        [attributedString addAttribute:NSLinkAttributeName
+                                 value:@"xieyi0://"
+                                 range:[[attributedString string] rangeOfString:@"《服务协议》"]];
+        
+        [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithsize:13] range:NSMakeRange(0, attributedString.length)];
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.alignment = NSTextAlignmentCenter;
+        
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, attributedString.length)];
+        _textView.linkTextAttributes = @{NSForegroundColorAttributeName: UIColorFromRGB(BHAPPMAINCOLOR)};
+        _textView.attributedText = attributedString;
+        _textView.delegate = self;
+        _textView.editable = NO;
+        _textView.scrollEnabled = NO;
+        _textView.allowsEditingTextAttributes = NO;
+    }
+    return _textView;
 }
 
 - (IBAction)quitapp:(id)sender {
@@ -136,16 +170,17 @@
 
 //微信openid登录
 - (void)weixinopenidTologin{
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"phone":self.phoneTextField.text,@"checkcode":self.codeTextField.text,@"model":[BHTools deviceMessage],@"openid":_openId}];
     NSString *url = [NSString stringWithFormat:@"%@%@",REQUEST_URL,@"sys/login"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[BHAppHttpClient sharedInstance] requestPOSTWithPath:url parameters:nil header:_openId success:^(BHResponse *response) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if ([response.code isEqualToString:@"10000"]) {//登录成功
             [self loginSuccess:response];
         }else{//登录失败
             self.detailLabel.text = @"您的微信账号未在order完成手机验证，\n请输入您的手机号码和验证码";
         }
     } error:^(NSError *error) {
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 
@@ -157,13 +192,16 @@
     NSLog(@"登录");
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"phone":self.phoneTextField.text,@"checkcode":self.codeTextField.text,@"model":[BHTools deviceMessage],@"openid":_openId}];
     NSString *url = [NSString stringWithFormat:@"%@%@",REQUEST_URL,@"sys/login"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[BHAppHttpClient sharedInstance] requestPOSTWithPath:url parameters:dic success:^(BHResponse *response) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if ([@"10000" isEqualToString:response.code]) {
             [self loginSuccess:response];
         }else{
             [MBProgressHUD showError:response.msg];
         }
     } error:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [MBProgressHUD showError:BHDEFAULTERROR];
     }];
 }
@@ -282,6 +320,15 @@
     BHTabBarViewController *tabbarVC = [mainStroyBoard instantiateInitialViewController];
     delegate.window.rootViewController = tabbarVC;
 }
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange {
+    if ([[URL scheme] isEqualToString:@"xieyi0"]) {
+        
+    }
+    return YES;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -14,6 +14,7 @@
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <Masonry/Masonry.h>
 #import "UIView+BH.h"
 #import "AppMacro.h"
 #import "UtilsMacro.h"

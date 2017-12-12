@@ -8,4 +8,5 @@ pod 'MJRefresh', '~> 3.1.12'
 pod 'AFNetworking', '~> 3.1.0'
 pod 'IQKeyboardManager', '~> 4.0.8'
 pod 'WechatOpenSDK'
+pod 'Masonry', '~> 1.0.2'
 end

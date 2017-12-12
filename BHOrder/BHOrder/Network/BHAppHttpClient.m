@@ -126,7 +126,7 @@
     
 #endif
     if ([parameters objectForKey:@"openid"]) {
-        [self.requestSerializer setValue:[parameters objectForKey:@"openid"] forHTTPHeaderField:@"openid"];
+        [self.requestSerializer setValue:nil forHTTPHeaderField:@"openid"];
     }
     if ([BHUser currentUser].token) {
         [self.requestSerializer setValue:[BHUser currentUser].token forHTTPHeaderField:@"token"];
