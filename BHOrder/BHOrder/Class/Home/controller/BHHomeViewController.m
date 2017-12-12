@@ -113,7 +113,7 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"BHHomeTaskTableViewCell" bundle:nil] forCellReuseIdentifier:indentifier];
         _tableView.tableFooterView = [UIView new];
-        _tableView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        _tableView.mj_header = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
             self.page = 1;
             [self loadmytasklist];
         }];
