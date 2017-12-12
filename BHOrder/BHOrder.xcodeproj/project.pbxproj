@@ -27,6 +27,10 @@
 		A32D80C31FDE618B002682E4 /* BHTools.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80C21FDE618B002682E4 /* BHTools.m */; };
 		A32D80C71FDE670A002682E4 /* NSString+BH.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80C61FDE670A002682E4 /* NSString+BH.m */; };
 		A32D80CA1FDF6800002682E4 /* BHLoginProtocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80C91FDF6800002682E4 /* BHLoginProtocalViewController.m */; };
+		A32D80CE1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80CC1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m */; };
+		A32D80CF1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32D80CD1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib */; };
+		A32D80D21FDFB77A002682E4 /* BHTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80D11FDFB77A002682E4 /* BHTask.m */; };
+		A32D80D61FDFBDB9002682E4 /* NSDate+BH.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D80D51FDFBDB9002682E4 /* NSDate+BH.m */; };
 		A3D85DEA1FDD35F1005F19B4 /* BHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D85DE91FDD35F1005F19B4 /* BHPopView.m */; };
 		A3EB1A8C1FDA6E5600EA087A /* BHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1A8B1FDA6E5600EA087A /* BHViewController.m */; };
 		A3EB1AA61FDA758A00EA087A /* BHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AA51FDA758A00EA087A /* BHNavigationViewController.m */; };
@@ -77,6 +81,13 @@
 		A32D80C61FDE670A002682E4 /* NSString+BH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+BH.m"; sourceTree = "<group>"; };
 		A32D80C81FDF6800002682E4 /* BHLoginProtocalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHLoginProtocalViewController.h; sourceTree = "<group>"; };
 		A32D80C91FDF6800002682E4 /* BHLoginProtocalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHLoginProtocalViewController.m; sourceTree = "<group>"; };
+		A32D80CB1FDFA84B002682E4 /* BHHomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHHomeTaskTableViewCell.h; sourceTree = "<group>"; };
+		A32D80CC1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHHomeTaskTableViewCell.m; sourceTree = "<group>"; };
+		A32D80CD1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BHHomeTaskTableViewCell.xib; sourceTree = "<group>"; };
+		A32D80D01FDFB77A002682E4 /* BHTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHTask.h; sourceTree = "<group>"; };
+		A32D80D11FDFB77A002682E4 /* BHTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHTask.m; sourceTree = "<group>"; };
+		A32D80D41FDFBDB9002682E4 /* NSDate+BH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BH.h"; sourceTree = "<group>"; };
+		A32D80D51FDFBDB9002682E4 /* NSDate+BH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BH.m"; sourceTree = "<group>"; };
 		A3377CE01FD7C4D50069B128 /* BHOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BHOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D85DE81FDD35F1005F19B4 /* BHPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPopView.h; sourceTree = "<group>"; };
 		A3D85DE91FDD35F1005F19B4 /* BHPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPopView.m; sourceTree = "<group>"; };
@@ -158,6 +169,15 @@
 				A32D80C61FDE670A002682E4 /* NSString+BH.m */,
 			);
 			path = NSString;
+			sourceTree = "<group>";
+		};
+		A32D80D31FDFBDB9002682E4 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				A32D80D41FDFBDB9002682E4 /* NSDate+BH.h */,
+				A32D80D51FDFBDB9002682E4 /* NSDate+BH.m */,
+			);
+			path = NSDate;
 			sourceTree = "<group>";
 		};
 		A3377CD71FD7C4D50069B128 = {
@@ -301,6 +321,8 @@
 		A3EB1A9A1FDA753D00EA087A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A32D80D01FDFB77A002682E4 /* BHTask.h */,
+				A32D80D11FDFB77A002682E4 /* BHTask.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -308,6 +330,9 @@
 		A3EB1A9B1FDA753D00EA087A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A32D80CB1FDFA84B002682E4 /* BHHomeTaskTableViewCell.h */,
+				A32D80CC1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m */,
+				A32D80CD1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -405,6 +430,7 @@
 		A3FEFF831FDA62DF00B78D05 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A32D80D31FDFBDB9002682E4 /* NSDate */,
 				A32D80C41FDE66EF002682E4 /* NSString */,
 				A32D80BD1FDE6055002682E4 /* UIFont */,
 				A3FEFFC61FDA6D5400B78D05 /* UIView */,
@@ -582,6 +608,7 @@
 			files = (
 				A3FEFFB21FDA663600B78D05 /* Main.storyboard in Resources */,
 				A3FEFFB31FDA663600B78D05 /* LaunchScreen.storyboard in Resources */,
+				A32D80CF1FDFA84B002682E4 /* BHHomeTaskTableViewCell.xib in Resources */,
 				A32D809C1FDE1E47002682E4 /* BHLoginViewController.xib in Resources */,
 				A3FEFFAD1FDA662E00B78D05 /* Assets.xcassets in Resources */,
 				A3FEFFB61FDA664000B78D05 /* Info.plist in Resources */,
@@ -665,16 +692,19 @@
 				A3EB1AA61FDA758A00EA087A /* BHNavigationViewController.m in Sources */,
 				A3D85DEA1FDD35F1005F19B4 /* BHPopView.m in Sources */,
 				A32D80CA1FDF6800002682E4 /* BHLoginProtocalViewController.m in Sources */,
+				A32D80D61FDFBDB9002682E4 /* NSDate+BH.m in Sources */,
 				A32D80C31FDE618B002682E4 /* BHTools.m in Sources */,
 				A3FEFFBE1FDA68C200B78D05 /* BHTabBarViewController.m in Sources */,
 				A3FEFFB71FDA664000B78D05 /* main.m in Sources */,
 				A3EB1AAC1FDA7A7500EA087A /* BHProjectViewController.m in Sources */,
 				A3FEFFC41FDA690400B78D05 /* TransitionController.m in Sources */,
 				A32D80B01FDE51A0002682E4 /* BHAppHttpClient.m in Sources */,
+				A32D80CE1FDFA84B002682E4 /* BHHomeTaskTableViewCell.m in Sources */,
 				A32D80BA1FDE5E4B002682E4 /* MBProgressHUD+MJ.m in Sources */,
 				A3FEFFBA1FDA665A00B78D05 /* AppDelegate.m in Sources */,
 				A32D80AF1FDE51A0002682E4 /* BHResponse.m in Sources */,
 				A3EB1A8C1FDA6E5600EA087A /* BHViewController.m in Sources */,
+				A32D80D21FDFB77A002682E4 /* BHTask.m in Sources */,
 				A32D809B1FDE1E47002682E4 /* BHLoginViewController.m in Sources */,
 				A32D80BC1FDE5E4B002682E4 /* MBProgressHUD.m in Sources */,
 				A32D80B31FDE51CE002682E4 /* BHUser.m in Sources */,
@@ -820,13 +850,15 @@
 			baseConfigurationReference = DC2939E7B9303C1C6BA8FCDB /* Pods-BHOrder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZEYU2G963;
 				INFOPLIST_FILE = "$(SRCROOT)/BHOrder/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bankhui.BHOrder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bankhui.BHLawOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -836,13 +868,15 @@
 			baseConfigurationReference = 45E615BBAC3F4745A5B01B18 /* Pods-BHOrder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZEYU2G963;
 				INFOPLIST_FILE = "$(SRCROOT)/BHOrder/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bankhui.BHOrder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bankhui.BHLawOrder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

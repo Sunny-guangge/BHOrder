@@ -29,4 +29,7 @@
 
 #define BHDEFAULTERROR @"网络错误，请稍后重试"
 
+#define BHPageSize @(10)
+#define BHServerSuccess @"10000"
+
 #endif /* AppMacro_h */

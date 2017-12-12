@@ -16,4 +16,9 @@
 - (void)addCommonBackButtonWithTitle:(NSString *)title;
 - (void)popViewController;
 
+/**
+ *分页用的page
+ */
+@property (nonatomic,assign) NSInteger page;
+
 @end

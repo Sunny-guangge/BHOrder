@@ -26,4 +26,7 @@
  */
 + (NSString *)currentAppVersion;
 
+#pragma mark - 任务工具
++ (NSString *)taskByType:(NSInteger)type;
+
 @end

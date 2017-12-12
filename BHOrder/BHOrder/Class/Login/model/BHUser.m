@@ -122,6 +122,7 @@ static BHUser *currentUser = nil;
 + (void)showOtherLogin{
     if ([BHUser isLogin]) {
         [BHUser clearUser];
+        [BHUser exitLogoutVC];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"你的账号已在其他地方登录" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
     }

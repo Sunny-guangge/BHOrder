@@ -56,4 +56,57 @@
     return [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 }
 
+#pragma mark - 任务工具
++ (NSString *)taskByType:(NSInteger)type{
+    NSString *taskType;
+    switch (type) {
+        case 1:
+            taskType = @"调研";
+            break;
+        case 2:
+            taskType = @"投标";
+            break;
+        case 3:
+            taskType = @"立项";
+            break;
+        case 4:
+            taskType = @"谈判";
+            break;
+        case 5:
+            taskType = @"签署协议";
+            break;
+        case 6:
+            taskType = @"拟方案";
+            break;
+        case 7:
+            taskType = @"商讨";
+            break;
+        case 8:
+            taskType = @"内审";
+            break;
+        case 9:
+            taskType = @"法律意见书";
+            break;
+        case 10:
+            taskType = @"发票";
+            break;
+        case 11:
+            taskType = @"报价";
+            break;
+        case 12:
+            taskType = @"付款";
+            break;
+        case 13:
+            taskType = @"归档";
+            break;
+        case 99:
+            taskType = @"其它";
+            break;
+        default:
+            taskType = @"";
+            break;
+    }
+    return taskType;
+}
+
 @end

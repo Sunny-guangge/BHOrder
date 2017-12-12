@@ -111,7 +111,7 @@
     NSLog(@"获取验证码");
     NSString *url = [NSString stringWithFormat:@"%@%@%@",REQUEST_URL,@"sys/send_sms_code/",self.phoneTextField.text];
     [[BHAppHttpClient sharedInstance] requestPOSTWithPath:url parameters:nil success:^(BHResponse *response) {
-        if ([@"10000" isEqualToString:response.code]) {
+        if ([BHServerSuccess isEqualToString:response.code]) {
             _nstimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
             [_nstimer fire];
             [MBProgressHUD showSuccess:@"发送成功"];
@@ -174,7 +174,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[BHAppHttpClient sharedInstance] requestPOSTWithPath:url parameters:nil header:_openId success:^(BHResponse *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if ([response.code isEqualToString:@"10000"]) {//登录成功
+        if ([response.code isEqualToString:BHServerSuccess]) {//登录成功
             [self loginSuccess:response];
         }else{//登录失败
             self.detailLabel.text = @"您的微信账号未在order完成手机验证，\n请输入您的手机号码和验证码";
@@ -195,7 +195,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[BHAppHttpClient sharedInstance] requestPOSTWithPath:url parameters:dic success:^(BHResponse *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if ([@"10000" isEqualToString:response.code]) {
+        if ([BHServerSuccess isEqualToString:response.code]) {
             [self loginSuccess:response];
         }else{
             [MBProgressHUD showError:response.msg];

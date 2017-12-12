@@ -8,7 +8,9 @@
 
 #import "BHViewController.h"
 
-@interface BHViewController ()
+@interface BHViewController (){
+    NSInteger _page;
+}
 
 @end
 
