@@ -13,6 +13,7 @@
 #import "BHHomeViewController.h"
 #import "BHProjectViewController.h"
 #import "BHMessageViewController.h"
+#import "BHTools.h"
 
 @interface BHTabBarViewController ()<UITabBarControllerDelegate>
 
@@ -64,27 +65,30 @@
 }
 
 - (void)beginInteractiveTransitionIfPossible:(UIPanGestureRecognizer *)sender{
-    CGPoint translation = [sender translationInView:self.view];
-    if (translation.x > 0.f && self.selectedIndex > 0) {
-        self.selectedIndex --;
-    }
-    else if (translation.x < 0.f && self.selectedIndex + 1 < self.viewControllers.count) {
-        self.selectedIndex ++;
-    }
-    else {
-        if (!CGPointEqualToPoint(translation, CGPointZero)) {
-            sender.enabled = NO;
-            sender.enabled = YES;
-        }
-    }
     
-    [self.transitionCoordinator animateAlongsideTransitionInView:self.view animation:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        if ([context isCancelled] && sender.state == UIGestureRecognizerStateChanged){
-            [self beginInteractiveTransitionIfPossible:sender];
+    if ([[BHTools getCurrentVC] isKindOfClass:[BHHomeViewController class]] || [[BHTools getCurrentVC] isKindOfClass:[BHProjectViewController class]] || [[BHTools getCurrentVC] isKindOfClass:[BHMessageViewController class]]) {
+        CGPoint translation = [sender translationInView:self.view];
+        if (translation.x > 0.f && self.selectedIndex > 0) {
+            self.selectedIndex --;
         }
-    }];
+        else if (translation.x < 0.f && self.selectedIndex + 1 < self.viewControllers.count) {
+            self.selectedIndex ++;
+        }
+        else {
+            if (!CGPointEqualToPoint(translation, CGPointZero)) {
+                sender.enabled = NO;
+                sender.enabled = YES;
+            }
+        }
+        
+        [self.transitionCoordinator animateAlongsideTransitionInView:self.view animation:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+            
+        } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+            if ([context isCancelled] && sender.state == UIGestureRecognizerStateChanged){
+                [self beginInteractiveTransitionIfPossible:sender];
+            }
+        }];
+    }
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController animationControllerForTransitionFromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{

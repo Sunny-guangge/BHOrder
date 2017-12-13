@@ -31,4 +31,7 @@
  */
 - (NSString *)trimString;
 
+- (CGSize)sizeWithFont:(UIFont *)font maxW:(CGFloat)maxW;
+- (CGSize)sizeWithFont:(UIFont *)font;
+
 @end

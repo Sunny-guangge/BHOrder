@@ -26,6 +26,9 @@
  */
 + (NSString *)currentAppVersion;
 
+//获取当前controller
++ (UIViewController *)getCurrentVC;
+
 #pragma mark - 任务工具
 + (NSString *)taskByType:(NSInteger)type;
 

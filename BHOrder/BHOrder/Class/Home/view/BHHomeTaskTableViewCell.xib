@@ -109,7 +109,7 @@
                 <outlet property="selectButton" destination="CSO-lO-wde" id="7wS-uc-3N3"/>
                 <outlet property="timeLabel" destination="Est-hy-0Zz" id="xT9-Ta-wcp"/>
             </connections>
-            <point key="canvasLocation" x="-626" y="-105"/>
+            <point key="canvasLocation" x="-652" y="-131"/>
         </tableViewCell>
     </objects>
     <resources>

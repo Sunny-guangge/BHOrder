@@ -11,6 +11,8 @@
 #import "BHTask.h"
 #import "BHScheduleTableViewCell.h"
 #import "BHSchedule.h"
+#import "BHTaskDoneViewController.h"
+#import "BHPopView.h"
 
 static NSString *indentifier = @"BHHomeTaskTableViewCell";
 static NSString *schedueindentifier = @"BHScheduleTableViewCell";
@@ -236,7 +238,7 @@ static NSString *taskHeader = @"taskHeader";
         if (headerView == nil) {
             headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:schedueHeader];
             UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, 0, 200, 40)];
-            timeLabel.text = [NSDate timeWithDateFormatter:@"yyyy-MM-dd" date:[NSDate date]];
+            timeLabel.text = [NSDate timeWithDateFormatter:@"yyyy年MM月dd日" date:[NSDate date]];
             timeLabel.font = [UIFont systemFontOfSize:13];
             timeLabel.textColor = UIColorFromRGB(0x333333);
             [headerView addSubview:timeLabel];
@@ -273,11 +275,14 @@ static NSString *taskHeader = @"taskHeader";
         [button1 setImageEdgeInsets:UIEdgeInsetsMake(0, 104, 0, 0)];
         [headerView addSubview:button1];
     }
-    [_myTaskButton setTitle:[NSString stringWithFormat:@"我的任务(%lu)",(unsigned long)self.array.count] forState:UIControlStateNormal];
+    NSString *title = [NSString stringWithFormat:@"我的任务(%lu)",(unsigned long)self.array.count];
+    CGSize size = [title sizeWithFont:[UIFont systemFontOfSize:13]];
+    _myTaskButton.frame = CGRectMake(8, 0, size.width + 15 + 10, 40);
+    [_myTaskButton setTitle:title forState:UIControlStateNormal];
     [_myTaskButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [_myTaskButton setImage:[UIImage imageNamed:@"home_down"] forState:UIControlStateNormal];
-    [_myTaskButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-    [_myTaskButton setImageEdgeInsets:UIEdgeInsetsMake(0, 80, 0, 0)];
+    [_myTaskButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 15)];
+    [_myTaskButton setImageEdgeInsets:UIEdgeInsetsMake(0, size.width + 5 + 10, 0, 0)];
     headerView.backgroundColor = UIColorFromRGB(0xfafafa);
     return headerView;
 }
@@ -296,7 +301,8 @@ static NSString *taskHeader = @"taskHeader";
 }
 //查看所有已办任务
 - (void)clickcheckalltaskdone{
-    
+    BHTaskDoneViewController *taskDoneVC = [[BHTaskDoneViewController alloc] init];
+    [self.navigationController pushViewController:taskDoneVC animated:YES];
 }
 //所有任务排序
 - (void)clickcheckallmytask{
