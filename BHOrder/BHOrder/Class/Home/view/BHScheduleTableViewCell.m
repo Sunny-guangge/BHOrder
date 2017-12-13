@@ -7,18 +7,37 @@
 //
 
 #import "BHScheduleTableViewCell.h"
+#import "BHSchedule.h"
+
+@interface BHScheduleTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
+@property (weak, nonatomic) IBOutlet UIView *hiddenView;
+
+@end
 
 @implementation BHScheduleTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setHidden:(BOOL)hidden{
+    _hidden = hidden;
+    self.hiddenView.hidden = hidden;
+    self.startTimeLabel.hidden = !hidden;
+    self.contentLabel.hidden = !hidden;
+    self.endTimeLabel.hidden = !hidden;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setSchedule:(BHSchedule *)schedule{
+    _schedule = schedule;
+    self.startTimeLabel.text = [NSDate timeWithDateFormatter:@"HH:mm" timeNum:schedule.startTime];
+    if ([[NSDate timeWithDateFormatter:@"yyyy-MM-dd" timeNum:schedule.endTime] isEqualToString:[NSDate timeWithDateFormatter:@"yyyy-MM-dd" date:[NSDate date]]] ) {
+        self.endTimeLabel.text = [NSDate timeWithDateFormatter:@"HH:mm" timeNum:schedule.endTime];
+    }else{
+        self.endTimeLabel.text = [NSDate timeWithDateFormatter:@"MM-dd HH:mm" timeNum:schedule.endTime];
+    }
+    self.contentLabel.text = schedule.workName;
 }
 
 @end

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIView *hiddenView;
 - (IBAction)clickSelectButton:(id)sender;
 
 @end
@@ -28,6 +29,11 @@
     self.nameLabel.text = [BHTools taskByType:task.type];
     self.introduceLabel.text = task.taskName;
     self.timeLabel.text = [NSDate timeWithDateFormatter:@"MM-dd" timeNum:task.createTime];
+}
+
+- (void)setHidden:(BOOL)hidden{
+    _hidden = hidden;
+    self.hiddenView.hidden = hidden;
 }
 
 - (void)setSelect:(BOOL)select{

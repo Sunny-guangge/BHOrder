@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="BHHomeTaskTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BHHomeTaskTableViewCell" rowHeight="75" id="KGk-i7-Jjw" customClass="BHHomeTaskTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="361" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -65,28 +65,51 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G25-DM-wDC">
+                        <rect key="frame" x="0.0" y="0.0" width="361" height="81.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无任务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83j-zw-XlP">
+                                <rect key="frame" x="0.0" y="0.0" width="361" height="81.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="83j-zw-XlP" firstAttribute="leading" secondItem="G25-DM-wDC" secondAttribute="leading" id="5eR-Xe-Ra9"/>
+                            <constraint firstAttribute="bottom" secondItem="83j-zw-XlP" secondAttribute="bottom" id="M2H-Kj-Ypr"/>
+                            <constraint firstAttribute="trailing" secondItem="83j-zw-XlP" secondAttribute="trailing" id="X5f-oI-nEq"/>
+                            <constraint firstItem="83j-zw-XlP" firstAttribute="top" secondItem="G25-DM-wDC" secondAttribute="top" id="rI8-KL-AuE"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="iy1-BS-goq" firstAttribute="top" secondItem="Bli-HO-una" secondAttribute="bottom" constant="5" id="7F7-Nh-ecW"/>
                     <constraint firstItem="Est-hy-0Zz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8Zd-OD-2WB"/>
+                    <constraint firstAttribute="bottom" secondItem="G25-DM-wDC" secondAttribute="bottom" id="BwK-fq-b85"/>
                     <constraint firstAttribute="bottom" secondItem="Est-hy-0Zz" secondAttribute="bottom" id="DUg-BD-a20"/>
+                    <constraint firstItem="G25-DM-wDC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HqT-J2-cCb"/>
                     <constraint firstItem="iy1-BS-goq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="Jbk-QK-sWr"/>
                     <constraint firstAttribute="trailing" secondItem="Est-hy-0Zz" secondAttribute="trailing" constant="18" id="O7m-If-Mkc"/>
                     <constraint firstItem="Est-hy-0Zz" firstAttribute="leading" secondItem="vxZ-ew-qxe" secondAttribute="trailing" constant="8" id="PnK-nX-heM"/>
                     <constraint firstItem="CSO-lO-wde" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Qcx-Ok-jo3"/>
                     <constraint firstItem="vxZ-ew-qxe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bv7-JJ-DAu"/>
+                    <constraint firstAttribute="trailing" secondItem="G25-DM-wDC" secondAttribute="trailing" id="c3c-je-qkI"/>
                     <constraint firstItem="Bli-HO-una" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="iYS-Y3-XF3"/>
                     <constraint firstItem="Bli-HO-una" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="qOa-vS-6lS"/>
+                    <constraint firstItem="G25-DM-wDC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vdQ-77-FvA"/>
                     <constraint firstItem="CSO-lO-wde" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yRf-tL-ANb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="hiddenView" destination="G25-DM-wDC" id="5wF-55-ym3"/>
                 <outlet property="introduceLabel" destination="iy1-BS-goq" id="7Cg-3r-pEh"/>
                 <outlet property="nameLabel" destination="Bli-HO-una" id="Aeu-v4-vH5"/>
                 <outlet property="selectButton" destination="CSO-lO-wde" id="7wS-uc-3N3"/>
                 <outlet property="timeLabel" destination="Est-hy-0Zz" id="xT9-Ta-wcp"/>
             </connections>
-            <point key="canvasLocation" x="-339" y="-118"/>
+            <point key="canvasLocation" x="-626" y="-105"/>
         </tableViewCell>
     </objects>
     <resources>

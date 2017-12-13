@@ -23,4 +23,6 @@
 
 @property (nonatomic,weak) id<BHHomeTaskTableViewCellDeletage> delegate;
 
+@property (nonatomic,assign) BOOL hidden;
+
 @end

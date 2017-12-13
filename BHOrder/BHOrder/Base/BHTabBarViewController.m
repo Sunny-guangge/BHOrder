@@ -30,7 +30,10 @@
     self.selectedIndex = 0;
     [self.view addGestureRecognizer:self.panGestureRecognizer];
     self.tabBar.backgroundColor = [UIColor whiteColor];
-
+    
+    NSArray *image = @[@"tabbarhome",@"tabbarmessage",@"tabbarproject"];
+    NSArray *imageSel = @[@"tabbarhomeSel",@"tabbarmessageSel",@"tabbarprojectSel"];
+    
     for (int i = 0; i < self.tabBar.items.count; i ++) {
         NSDictionary *dic = @{NSForegroundColorAttributeName: [UIColor blackColor]};
         NSDictionary *selecteddic = @{NSForegroundColorAttributeName: UIColorFromRGB(BHAPPMAINCOLOR)};
@@ -38,6 +41,8 @@
         UITabBarItem *item = [self.tabBar.items objectAtIndex:i];
         [item setTitleTextAttributes:dic forState:UIControlStateNormal];
         [item setTitleTextAttributes:selecteddic forState:UIControlStateSelected];
+        item.image =[[UIImage imageNamed:[image objectAtIndex:i]]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.selectedImage =[[UIImage imageNamed:[imageSel objectAtIndex:i]]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
 }
 

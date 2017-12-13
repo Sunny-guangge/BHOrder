@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class BHSchedule;
 @interface BHScheduleTableViewCell : UITableViewCell
+
+@property (nonatomic,assign) BOOL hidden;
+
+@property (nonatomic,strong) BHSchedule *schedule;
 
 @end
