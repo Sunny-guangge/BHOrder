@@ -14,6 +14,7 @@
 #import "BHTaskDoneViewController.h"
 #import "BHPopView.h"
 #import "BHHeaderIconView.h"
+#import "BHYMBCheckMoreView.h"
 
 static NSString *indentifier = @"BHHomeTaskTableViewCell";
 static NSString *schedueindentifier = @"BHScheduleTableViewCell";
@@ -317,7 +318,11 @@ static NSString *taskHeader = @"taskHeader";
 }
 //所有任务排序
 - (void)clickcheckallmytask{
-    
+    BHYMBCheckMoreView *checkView = [[BHYMBCheckMoreView alloc] initWithPoint:CGPointMake(self.view.width - 30, 75 + 30) titleArray:@[@"按任务类型排序",@"按截止时间排序",@"按优先级排序"] imageArray:nil];
+    checkView.selectRowAtIndex = ^(NSInteger index) {
+        NSLog(@"%ld",index);
+    };
+    [checkView show];
 }
 
 @end

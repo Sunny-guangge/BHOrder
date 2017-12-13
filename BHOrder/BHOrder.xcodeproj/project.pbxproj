@@ -36,6 +36,7 @@
 		A32D811E1FE0C511002682E4 /* BHSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D811D1FE0C511002682E4 /* BHSchedule.m */; };
 		A32D81211FE0F4A2002682E4 /* BHTaskDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D81201FE0F4A1002682E4 /* BHTaskDoneViewController.m */; };
 		A32D81241FE10AE4002682E4 /* BHHeaderIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D81231FE10AE4002682E4 /* BHHeaderIconView.m */; };
+		A32D81281FE11CDB002682E4 /* BHYMBCheckMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D81271FE11CDB002682E4 /* BHYMBCheckMoreView.m */; };
 		A3D85DEA1FDD35F1005F19B4 /* BHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D85DE91FDD35F1005F19B4 /* BHPopView.m */; };
 		A3EB1A8C1FDA6E5600EA087A /* BHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1A8B1FDA6E5600EA087A /* BHViewController.m */; };
 		A3EB1AA61FDA758A00EA087A /* BHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AA51FDA758A00EA087A /* BHNavigationViewController.m */; };
@@ -102,6 +103,8 @@
 		A32D81201FE0F4A1002682E4 /* BHTaskDoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHTaskDoneViewController.m; sourceTree = "<group>"; };
 		A32D81221FE10AE4002682E4 /* BHHeaderIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHHeaderIconView.h; sourceTree = "<group>"; };
 		A32D81231FE10AE4002682E4 /* BHHeaderIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHHeaderIconView.m; sourceTree = "<group>"; };
+		A32D81261FE11CDB002682E4 /* BHYMBCheckMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHYMBCheckMoreView.h; sourceTree = "<group>"; };
+		A32D81271FE11CDB002682E4 /* BHYMBCheckMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHYMBCheckMoreView.m; sourceTree = "<group>"; };
 		A3377CE01FD7C4D50069B128 /* BHOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BHOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D85DE81FDD35F1005F19B4 /* BHPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPopView.h; sourceTree = "<group>"; };
 		A3D85DE91FDD35F1005F19B4 /* BHPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPopView.m; sourceTree = "<group>"; };
@@ -194,6 +197,15 @@
 			path = NSDate;
 			sourceTree = "<group>";
 		};
+		A32D81251FE11CDB002682E4 /* BHSuspendView */ = {
+			isa = PBXGroup;
+			children = (
+				A32D81261FE11CDB002682E4 /* BHYMBCheckMoreView.h */,
+				A32D81271FE11CDB002682E4 /* BHYMBCheckMoreView.m */,
+			);
+			path = BHSuspendView;
+			sourceTree = "<group>";
+		};
 		A3377CD71FD7C4D50069B128 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +244,7 @@
 		A3D85DE61FDD35DF005F19B4 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				A32D81251FE11CDB002682E4 /* BHSuspendView */,
 				A32D80B41FDE5E4B002682E4 /* MBProgressHUD */,
 				A3D85DE71FDD35F1005F19B4 /* BHPopView */,
 			);
@@ -738,6 +751,7 @@
 				A32D80B31FDE51CE002682E4 /* BHUser.m in Sources */,
 				A3EB1AAF1FDA7A8700EA087A /* BHMessageViewController.m in Sources */,
 				A3FEFFC91FDA6D5400B78D05 /* UIView+BH.m in Sources */,
+				A32D81281FE11CDB002682E4 /* BHYMBCheckMoreView.m in Sources */,
 				A32D80C01FDE6055002682E4 /* UIFont+BH.m in Sources */,
 				A3FEFFC51FDA690400B78D05 /* TransitionAnimation.m in Sources */,
 			);
