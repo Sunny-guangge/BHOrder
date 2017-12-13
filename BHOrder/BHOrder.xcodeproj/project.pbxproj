@@ -35,6 +35,7 @@
 		A32D811B1FDFD45C002682E4 /* BHScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32D81191FDFD45C002682E4 /* BHScheduleTableViewCell.xib */; };
 		A32D811E1FE0C511002682E4 /* BHSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D811D1FE0C511002682E4 /* BHSchedule.m */; };
 		A32D81211FE0F4A2002682E4 /* BHTaskDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D81201FE0F4A1002682E4 /* BHTaskDoneViewController.m */; };
+		A32D81241FE10AE4002682E4 /* BHHeaderIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D81231FE10AE4002682E4 /* BHHeaderIconView.m */; };
 		A3D85DEA1FDD35F1005F19B4 /* BHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D85DE91FDD35F1005F19B4 /* BHPopView.m */; };
 		A3EB1A8C1FDA6E5600EA087A /* BHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1A8B1FDA6E5600EA087A /* BHViewController.m */; };
 		A3EB1AA61FDA758A00EA087A /* BHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AA51FDA758A00EA087A /* BHNavigationViewController.m */; };
@@ -99,6 +100,8 @@
 		A32D811D1FE0C511002682E4 /* BHSchedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHSchedule.m; sourceTree = "<group>"; };
 		A32D811F1FE0F4A1002682E4 /* BHTaskDoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHTaskDoneViewController.h; sourceTree = "<group>"; };
 		A32D81201FE0F4A1002682E4 /* BHTaskDoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHTaskDoneViewController.m; sourceTree = "<group>"; };
+		A32D81221FE10AE4002682E4 /* BHHeaderIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHHeaderIconView.h; sourceTree = "<group>"; };
+		A32D81231FE10AE4002682E4 /* BHHeaderIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHHeaderIconView.m; sourceTree = "<group>"; };
 		A3377CE01FD7C4D50069B128 /* BHOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BHOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D85DE81FDD35F1005F19B4 /* BHPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPopView.h; sourceTree = "<group>"; };
 		A3D85DE91FDD35F1005F19B4 /* BHPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPopView.m; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				A32D81171FDFD45C002682E4 /* BHScheduleTableViewCell.h */,
 				A32D81181FDFD45C002682E4 /* BHScheduleTableViewCell.m */,
 				A32D81191FDFD45C002682E4 /* BHScheduleTableViewCell.xib */,
+				A32D81221FE10AE4002682E4 /* BHHeaderIconView.h */,
+				A32D81231FE10AE4002682E4 /* BHHeaderIconView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3EB1AA91FDA7A5700EA087A /* BHHomeViewController.m in Sources */,
+				A32D81241FE10AE4002682E4 /* BHHeaderIconView.m in Sources */,
 				A32D80C71FDE670A002682E4 /* NSString+BH.m in Sources */,
 				A3EB1AA61FDA758A00EA087A /* BHNavigationViewController.m in Sources */,
 				A3D85DEA1FDD35F1005F19B4 /* BHPopView.m in Sources */,

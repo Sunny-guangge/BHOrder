@@ -8,10 +8,15 @@
 
 #import "BHPopView.h"
 
+static CGFloat cellH = 60;
+
 @interface BHPopTableViewCell : UITableViewCell
 
+@property (nonatomic,strong) UIImageView *image;
 @property (nonatomic,strong) UILabel *titlelabel;
 @property (nonatomic,strong) UIView *lineView;
+@property (nonatomic,copy) NSString *selectTitle;
+@property (nonatomic,strong) NSArray *arr;
 
 @end
 
@@ -20,17 +25,42 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        [self addSubview:self.image];
         [self addSubview:self.titlelabel];
         [self addSubview:self.lineView];
     }
     return self;
 }
 
+- (void)setArr:(NSArray *)arr{
+    _arr = arr;
+    if (![[arr objectAtIndex:0] isBlankString]) {
+        self.image.image = [UIImage imageNamed:[arr objectAtIndex:0]];
+    }
+    if (_selectTitle && [[arr objectAtIndex:1] isEqualToString:_selectTitle]) {
+        self.titlelabel.textColor = UIColorFromRGB(0x999999);
+    }else{
+        self.titlelabel.textColor = UIColorFromRGB(0x333333);
+    }
+    self.titlelabel.text = [arr objectAtIndex:1];
+}
+
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-    self.titlelabel.frame = CGRectMake(18, 0, self.frame.size.width - 36, self.bounds.size.height);
+    if ([[_arr objectAtIndex:0] isBlankString]) {
+        self.titlelabel.frame = CGRectMake(18, 0, self.frame.size.width - 36, self.bounds.size.height);
+    }else{
+        self.image.frame = CGRectMake(30, (cellH - 18) / 2, 18, 18);
+        self.titlelabel.frame = CGRectMake(CGRectGetMaxX(self.image.frame) + 35, 0, self.frame.size.width - CGRectGetMaxX(self.image.frame) - 35 - 18, self.bounds.size.height);
+    }
     self.lineView.frame = CGRectMake(0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
+}
+
+- (UIImageView *)image{
+    if (_image == nil) {
+        _image = [[UIImageView alloc] init];
+    }
+    return _image;
 }
 
 - (UILabel *)titlelabel{
@@ -54,7 +84,6 @@
 @end
 
 static NSString *indentifier = @"BHPopTableViewCell";
-static CGFloat cellH = 44;
 
 @interface BHPopView()<UITableViewDelegate,UITableViewDataSource>{
     CGFloat _width;
@@ -140,13 +169,8 @@ static CGFloat cellH = 44;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     BHPopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-    NSString *title = [_array objectAtIndex:indexPath.row];
-    if ([_selectTitle isEqualToString:title]) {
-        cell.titlelabel.textColor = _selectColor;
-    }else{
-        cell.titlelabel.textColor = [UIColor blackColor];
-    }
-    cell.titlelabel.text = title;
+    cell.selectTitle = _selectTitle;
+    cell.arr = [_array objectAtIndex:indexPath.row];
     cell.titlelabel.textAlignment = _textAlignment;
     return cell;
 }
@@ -166,6 +190,6 @@ static CGFloat cellH = 44;
 }
 
 - (void)dealloc{
-    NSLog(@"------");
+    
 }
 @end

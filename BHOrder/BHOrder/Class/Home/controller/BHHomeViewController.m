@@ -13,6 +13,7 @@
 #import "BHSchedule.h"
 #import "BHTaskDoneViewController.h"
 #import "BHPopView.h"
+#import "BHHeaderIconView.h"
 
 static NSString *indentifier = @"BHHomeTaskTableViewCell";
 static NSString *schedueindentifier = @"BHScheduleTableViewCell";
@@ -26,7 +27,6 @@ static NSString *taskHeader = @"taskHeader";
 }
 
 @property (nonatomic,strong) UITableView *tableView;
-
 @property (nonatomic,strong) NSMutableArray *array;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 
@@ -46,10 +46,21 @@ static NSString *taskHeader = @"taskHeader";
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_create"] style:UIBarButtonItemStyleDone target:self action:@selector(clickaddbutton)];
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStyleDone target:self action:@selector(clickSearchButton)];
     self.navigationItem.rightBarButtonItems = @[addItem,searchItem];
+    
+    BHHeaderIconView *leftItem = [[BHHeaderIconView alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithCustomView:leftItem];
+    leftItem.block = ^{
+        NSLog(@"333333");
+    };
+    self.navigationItem.leftBarButtonItem = left;
 }
 
 - (void)clickaddbutton{
-    
+    BHPopView *view = [[BHPopView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds TitleArray:@[@[@"creat_project",@"创建项目"],@[@"creat_task",@"创建任务"],@[@"creat_schedule",@"创建日程"],@[@"home_help",@"帮助"]] textAlignmentType:NSTextAlignmentLeft BHPopViewDirectionType:BHPopViewDirectionDown];
+    view.block = ^(NSInteger index) {
+        
+    };
+    [view showInView:[UIApplication sharedApplication].keyWindow];
 }
 
 - (void)clickSearchButton{
