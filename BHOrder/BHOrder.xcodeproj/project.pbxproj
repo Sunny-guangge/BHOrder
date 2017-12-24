@@ -43,6 +43,7 @@
 		A3EB1AA91FDA7A5700EA087A /* BHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AA81FDA7A5700EA087A /* BHHomeViewController.m */; };
 		A3EB1AAC1FDA7A7500EA087A /* BHProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AAB1FDA7A7500EA087A /* BHProjectViewController.m */; };
 		A3EB1AAF1FDA7A8700EA087A /* BHMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB1AAE1FDA7A8700EA087A /* BHMessageViewController.m */; };
+		A3F872761FE504210015B840 /* BHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F872751FE504210015B840 /* BHTableView.m */; };
 		A3FEFFAD1FDA662E00B78D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FEFFAC1FDA662D00B78D05 /* Assets.xcassets */; };
 		A3FEFFB21FDA663600B78D05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3FEFFAE1FDA663600B78D05 /* Main.storyboard */; };
 		A3FEFFB31FDA663600B78D05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3FEFFB01FDA663600B78D05 /* LaunchScreen.storyboard */; };
@@ -120,6 +121,8 @@
 		A3EB1AAB1FDA7A7500EA087A /* BHProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHProjectViewController.m; sourceTree = "<group>"; };
 		A3EB1AAD1FDA7A8700EA087A /* BHMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHMessageViewController.h; sourceTree = "<group>"; };
 		A3EB1AAE1FDA7A8700EA087A /* BHMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHMessageViewController.m; sourceTree = "<group>"; };
+		A3F872741FE504210015B840 /* BHTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHTableView.h; sourceTree = "<group>"; };
+		A3F872751FE504210015B840 /* BHTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHTableView.m; sourceTree = "<group>"; };
 		A3FEFFAC1FDA662D00B78D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3FEFFAF1FDA663600B78D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3FEFFB11FDA663600B78D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -504,6 +507,8 @@
 				A3EB1A8B1FDA6E5600EA087A /* BHViewController.m */,
 				A3EB1AA41FDA758A00EA087A /* BHNavigationViewController.h */,
 				A3EB1AA51FDA758A00EA087A /* BHNavigationViewController.m */,
+				A3F872741FE504210015B840 /* BHTableView.h */,
+				A3F872751FE504210015B840 /* BHTableView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BHOrder/Pods-BHOrder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -673,6 +679,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -753,6 +760,7 @@
 				A3FEFFC91FDA6D5400B78D05 /* UIView+BH.m in Sources */,
 				A32D81281FE11CDB002682E4 /* BHYMBCheckMoreView.m in Sources */,
 				A32D80C01FDE6055002682E4 /* UIFont+BH.m in Sources */,
+				A3F872761FE504210015B840 /* BHTableView.m in Sources */,
 				A3FEFFC51FDA690400B78D05 /* TransitionAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
