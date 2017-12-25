@@ -63,6 +63,13 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
     }];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    self.array = nil;
+    self.tableView = nil;
+}
+
 - (UITableView *)tableView{
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
@@ -142,6 +149,10 @@ static NSString *indentifier = @"BHHomeTaskTableViewCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    NSLog(@"----------------");
 }
 
 @end
